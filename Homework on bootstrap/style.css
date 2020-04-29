@@ -1,0 +1,70 @@
+.col-xl-3{
+    justify-content: center;
+}
+
+body{
+    background-color: darkslategray !important;
+}
+
+#header{
+    background-color:#fff;
+}
+
+.intro{
+    color:#fff;
+    font-weight: lighter;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+}
+
+#im{
+    width: 30%;
+    height: 30%;
+}
+.music{
+    width: 75%;
+    color: #fff;
+    font-size: 2rem;
+    color: white;
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+}
+footer{
+    color: #fff;
+}
+
+a{
+    background-color: bisque;
+}
+
+#foot{
+    justify-content: center;
+}
+
+#network a{
+    padding: 12px;
+    background-color: white !important;
+    margin: 0 20px;
+}
+i{
+    font-size: larger;
+}
+
+a{
+    background-color: teal !important;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+a:hover{
+    color: thistle !important;
+    background-color: yellowgreen !important;
+}
+.collect li{
+    font-weight: bold;
+    list-style-type: square;
+    color: olivedrab;
+}
+#favoriteAlbum{
+    display: flex;
+    flex-wrap: wrap-reverse;
+}

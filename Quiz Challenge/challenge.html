@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Virus</title>
+    <style>
+        body{
+            background-color:crimson;
+        }
+        h1{
+            color: aqua;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;  
+        }
+        p{
+            color: white;
+            font-size:1.5rem;
+        }
+        label{
+            font-size:1.2rem;
+        }
+        .submit{
+            background-color:darkmagenta;
+            padding: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        .scoreValue{
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class ='title'>
+        <h1>Corona Virus</h1>
+    </div>
+    
+    <div class = "result">
+        <p class = "scoreValue">Your Score is 0%</p>
+    </div>
+
+    <div class="container">
+        <div>
+            <h2 class= "instructions">Select Just One Answer for Each question</h2>
+        </div>
+        <div>
+            <form class="covid" >
+               
+                <div>
+                    <p>1. When was the first outbreak of covid-19?</p>
+                    <input type="radio"  name = "q1" value = "A">
+                    <label for="q1">2005</label>
+                    <input type="radio" name = "q1" value = "B">
+                    <label for="q1">2019</label>
+                    </div><br>
+                    <div>
+                        <p>2. Where Did it Start?</p>
+                        <input type="radio"  name = "q2" value = "A">
+                        <label for="q2">Wuhan</label>
+                        <input type="radio" name = "q2" value = "B">
+                        <label for="q2">New York City</label>
+                        
+                        </div><br>
+                        <div>
+                            <p>3. Which country has the most deaths ?</p>
+                            <input type="radio"  name = "q3" value = "A">
+                              <label for="q3">Italy</label>
+                            <input type="radio" name = "q3" value = "B">
+                            <label for="q3">America</label>
+                            </div><br>
+                            <div>
+                                <p>4. How can we prevent Transmission?</p>
+                                <input type="radio"  name = "q4" value = "A">
+                                <label for="q4">By washing our Hands</label>
+                                <input type="radio" name = "q4" value = "B">
+                                <label for="q4">partying in crowded areas</label>
+                                </div><br>
+                                
+                                <div>
+                                    <p>5. Is there a vaccine for this virus?</p>
+                                    <input type="radio"  name = "q5" value = "A">
+                                    <label for="q5">Yes</label>
+                                    <input type="radio" name = "q5" value = "B">
+                                    <label for="q5">No</label>
+                                </div><br>
+                                <div>
+                                    <input type="submit" class ="submit">
+                                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+
+    const correctAnswers = ['B','A','B','A','B']
+    const result= document.querySelector('.result');
+    
+    const form = document.querySelector('.covid');
+    form.addEventListener('submit',e =>{
+        console.log('in the submit callback')
+        e.preventDefault();
+        var scores = 0;
+        let userAnswers = [form.q1.value,form.q2.value,form.q3.value,form.q4.value,form.q5.value]
+        userAnswers.forEach((answer,index)=>{
+            if(answer === correctAnswers[index]){
+                scores += 20;
+            }
+                
+            
+                
+            
+
+        });
+                //console.log(scores);
+                scrollTo(0,0)
+                let score = result.querySelector('.scoreValue')
+                score.innerText = `Your Score is ${scores}%`;
+                score.classList.remove('scoreValue')
+    
+                
+    });
+    
+
+    
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&display=swap" />
+    <style>
+      body {
+        background-color: #292929;
+        color: white;
+        font-family: 'Nunito', sans-serif;
+        max-width: 768px;
+        margin: 0 auto;
+      }
+
+      #calendar {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid white;
+      }
+
+      .day {
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+        min-height: 100px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #ef3d59;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      #addMeeting {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #addMeeting div {
+        text-align: center;
+      }
+
+      input {
+        background-color: #ef3d59;
+        color: white;
+        border: 0;
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      ::placeholder {
+        color: white;
+      }
+
+      .selected {
+        /*this won't work with something like dayselected*/
+        border: 1px solid white;
+      }
+
+      .selected h3 {
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calendar</h1>
+    <div id="calendar">
+      <!-- stuff will be inserted here -->
+    </div>
+    <h1>Add Meeting</h1>
+    <div id="addMeeting">
+      <div>
+        <h4>Meeting Day</h4>
+        <h4 id="newMeetingDay">Click on a Day</h4>
+      </div>
+      <div>
+        <h4>Meeting Time</h4>
+        <input type="time" id="newMeetingTime" />
+      </div>
+      <div>
+        <h4>Meeting Name</h4>
+        <input type="text" id="newMeetingName" placeholder="Insert a name for the meeting" />
+      </div>
+      <div>
+        <h4>Add</h4>
+        <input type="button" value="Save Meeting" onclick="saveMeeting()" />
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        var numberOfDays = daysInThisMonth() // 30
+        console.log('this is the value of numberOfDays', numberOfDays)
+        var calendar = document.querySelector('#calendar')
+
+        for (let i = 0; i < numberOfDays; i++) {
+          let child = document.createElement('div')
+          child.className = 'day'
+
+          child.onclick = function (event) {
+            let selected = document.querySelector('.selected')
+            if (selected) {
+              selected.className = selected.className.replace(' selected', '')
+            }
+            // now we don't have for sure any selected element
+            event.currentTarget.className += ' selected'
+
+            document.querySelector('#newMeetingDay').innerText = i + 1
+          }
+
+          let day = document.createElement('h3')
+          let dayOfTheMonth = i + 1
+          day.innerText = dayOfTheMonth
+
+          child.appendChild(day)
+          calendar.appendChild(child)
+        }
+      }
+
+      function daysInThisMonth() {
+        let now = new Date()
+        return new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate()
+      }
+
+      function saveMeeting() {
+        let meetingDay = document.querySelector('#newMeetingDay').innerText
+        let meetingTime = document.querySelector('#newMeetingTime')
+        let meetingName = document.querySelector('#newMeetingName')
+
+        console.log(meetingDay, meetingTime.value, meetingName.value)
+
+        meetingTime.value = ''
+        meetingName.value = ''
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <h1>Welcome to your personal Task List!</h1>
+    <br />
+ 
+    <span>You can add any task you like by writing it in the specified field and then press "Add new
+       task"</span><br /><br />
+ 
+    <input type="text" id="newTask">
+    <input type="button" value="Add new Task" onclick="addNewTask()">
+ 
+    <!-- EXERCISE 3
+         Create a button "Remove Last Task" to trigger the method "removeLast"
+         -->
+         <input onclick="removeLast()" id = "remls" type="button" value = "Remove Last Task">
+ 
+    <!-- EXERCISE 4
+         Create a button "Remove First Task" to trigger the method "removeFirst"
+         -->
+         <input onclick="removeFirst()" type="button" value = "Remove First Task">
+ 
+    <ul id="myTaskList">
+        <li>Eat breakfast</li>
+        <li>Attend lessons</li>
+
+    </ul>
+ 
+    <hr />
+ 
+    <input type="color" placeholder="Color" id="colorPicker">
+    <input type="button" value="Change task background" onclick="changeTaskBackgroundColor()">
+ 
+    <hr />
+ 
+    <input type="button" value="Sort" onclick="bubbleSort()" />
+ 
+    <script>
+       //function addNewTask() {
+          /* EXERCISE 5: 
+              Add a new task to the list.
+              Suggestion:
+              - Use document.getElementById to get the UL item and the input text
+              - Use the document.createElement to create the new List Item
+              - Append the child to the UL
+          */
+         //let newTask= document.createElement('li');
+         //newTask.innerHTML = 'Eat Dinner';
+         //let parent = document.querySelector('#myTaskList')
+         //parent.appendChild(newTask);
+         //(createanew list item when clicking on the add button)
+        function addNewTask(){
+         let newTask = document.createElement('li') ;
+         let inputValue= document.getElementById('newTask').value;
+         let inputInnertext = document.createTextNode(inputValue);
+         //let inputInnertext = document.innerText(inputValue);
+         newTask.appendChild(inputInnertext);
+         if(inputValue === ''){
+             alert('you must write something');
+         }else{
+             document.querySelector('#myTaskList').appendChild(newTask);
+         }
+         document.querySelector('#myTaskList'). value = "";
+        }
+       
+       
+       window.onload= addNewTask();
+ 
+       /* EXERCISE 6: 
+           Implement a method "removeLast" which removes the last item from the task list
+       */
+      
+        function removeLast(){
+          let list= document.querySelector('#myTaskList');
+          let childLi =document.querySelectorAll('li')
+          list.removeChild(childLi[1])
+              
+          }
+          
+       window.onload = removeLast();
+       /* EXERCISE 7: 
+             Implement a method "removeFirst" which removes the first item from the task list
+       */
+       function removeFirst(){
+          let firstIt = document.querySelector('#myTaskList');
+          let firstLi =document.querySelectorAll('li')
+
+          firstIt.removeChild(firstLi[0]);
+       }
+       
+       window.onload = removeFirst();
+ 
+       /* EXERCISE 8: 
+          Implement a method "getTasksAsArray" which returns (and print to the console) an array containing the tasks as string
+       */
+       function getTasksAsArray(){
+          let li = document.querySelectorAll('li');
+          li.toString();
+          /*let tasksArray = []
+          for(let i =0; i<li.length; i++){
+             tasksArray.push(li[i].innerText)
+          }
+ 
+          console.log(li);*/
+ 
+       }
+       window.onload = getTasksAsArray();
+       /* EXERCISE 9:
+          Create a method "changeTaskBackgroundColor" which takes the color from the color picker ad apply it as background to every list item
+       */
+       
+       
+       function changeTaskBackgroundColor(){
+          
+        let colorP = document.querySelector('#colorPicker').value;
+          let newLi = document.querySelectorAll('li')
+          for(i = 0; i<newLi.length; i++){
+              newLi[i].style.backgroundColor = colorP;
+          }
+             
+ 
+       }
+       
+       window.onload = changeTaskBackgroundColor();
+ 
+       /* EXERCISE 10: 
+          Implement a method "bubbleSort()" which sort the task list alphabetically.*/
+
+          function bubbleSort(){
+         let newArray=getTasksAsArray();
+
+         let didISwap = false;
+         do {
+            didISwap = false;
+            for (let i = 0; i< newArray.length -1; i ++){
+            if (newArray[i] > newArray[i+1]) {
+               let temp = newArray[i];
+               newArray[i] = newArray[i+1]
+               newArray[i+1] = temp;
+               didISwap = true;
+            }
+         }
+         } while(didISwap)
+
+         // replace the content of the list with the sorted list items
+        
+         // newArray.sort();
+         // let elementList2=document.querySelectorAll(`#myTaskList li`);
+         // for (i10=0;i10<newArray.length;i10++){
+         //    elementList2[i10].innerText=newArray[i10];
+         // }
+      }
+        /*function bubbleSort () {
+           let listItem = document.querySelectorAll('li')
+           listItem.sort();
+          
+           console.log(sorted);
+ 
+        } */
+        window.onload = bubbleSort();
+       
+          
+         // EXTRA EXERCISE:
+          //Implement bubblesort algorithm*/
+ 
+       
+    </script>
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

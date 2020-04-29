@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Challenge</title>
+    <style>
+        body{
+            background-color: brown;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+        #bingo{
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid white;
+        }
+        .bing{
+            display: inline-block;
+            width: 50px;
+        }
+        h1{
+            text-align: center;
+            margin-top: 20px;
+            color:aliceblue;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+         
+    </style>
+</head>
+<body>
+    <h1>Bingo</h1>
+<div id = "bingo">
+</div>
+
+
+    <script>
+        
+
+        window.onload = function (){
+            
+            var bingo = document.querySelector('#bingo');
+            for (let i = 0; i <76; i++){
+                let child = document.createElement('div')
+                child.className = 'bing'
+                let number = document.createElement('h3');
+                let dataInCell = i + 1
+                number.innerHTML = dataInCell;
+                child.appendChild(number)
+                bingo.appendChild(child)
+            }
+        }
+
+
+       window.onload =  function randomNumber (){
+            let randomNumber = Math.floor(Math.random() * 77)
+            for(let i = 0; i<randomNumber.length, i++){
+              let button =  document.createElement('button')
+              button.innerText += randomNumber
+              
+
+            }
+        }
+
+    </script>
+</body>
+</html>

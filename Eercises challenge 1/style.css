@@ -1,0 +1,66 @@
+table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th,td{
+    padding: 15px;
+}
+nav{
+    display:inline-block;
+    background-color:beige;
+    overflow: hidden;
+
+}
+.topnav{
+    display:inline-flex;
+    list-style-type: none;
+   
+}
+.intro{
+    display: in-line;
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    left: 1000px;
+    padding: 12px;
+}
+body{
+    background-imag:url("images/football.jpg");
+    background-position:center center;
+    background-size:cover;
+    background-color: mediumaquamarine;
+}
+.navbar{
+    position: fixed;
+}
+
+.history{
+    width:50%;
+    font-size: 18px;
+}
+.vision ul li{
+    display: inline-flexbox;
+    text-align: center;
+    list-style-type:none;
+}
+.vi{
+    padding: 16px;
+    font-size: 20px;
+    color: cornsilk;
+    display: inline-block;
+}
+.fa-dove{
+    color: darkgreen;
+}
+.fa-heartbeat{
+    color: darkred;
+}
+.fa-infinity{
+    color: darkseagreen;
+}
+.fa-kiss-wink-heart{
+    color: ivory;
+}
+.fa-hands-helping{
+    color: lightcyan;
+}
