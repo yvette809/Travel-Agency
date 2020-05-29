@@ -43,7 +43,7 @@
         
     
       }
-      th,tr{
+      th,tr,td,{
        
         display:flex;
         justify-content: space-evenly;
@@ -60,17 +60,23 @@
         position: absolute;
         top: 20px;
       }
+      body{
+        background-color: bisque;
+      }
+      button{
+        z-index: 5;
+        position: absolute;
+        right: 10px;
+      }
     </style>
   </head>
   <body>
     <div class="container searchQuery d-flex">
-    <div class="dropdown mt-4 ml-4">
+    <div class="dropdown mt-4 ml-4 h-10" ></div>
+    <span><input type="search" class = "w-10 text-center  rounded"id = 'search' placeholder="search"></span>
+    <span><button type="button" class="btn btn-info">filter</button></span>
+    </div>
     
-    </div>
-    <span><input type="search" class = "w-10 text-center"id = 'search' placeholder="search"></span>
-
-
-    </div>
 
     <h1 class = "text-center mt-3"> Users</h1>
     <div class="container user"></div>

@@ -11,22 +11,18 @@ window.onload = getUsers()
      const users = await getUsers()
      console.log(users)
      let userContainer1 = document.querySelector('.user')
-     let userList = document.createElement('table')
         userContainer1.innerHTML +=`
-         <table>
+         <table class= "table">
          <th>Name</th>
          <th>Username</th>
          <th>Email</th>
         </table>
          `
-         userContainer1.appendChild(userList)
         users.forEach(user => {
          let userContainer = document.querySelector('.user')
-         let userList = document.createElement('table')
-         userList.classList.add('userInfo')
-         
+          
          userContainer.innerHTML += `
-        <table>
+        
          <tr>
         
          <td>${user.name}  </td>
@@ -35,9 +31,9 @@ window.onload = getUsers()
          
          <td>${user.email}  </td>
          </tr>
+         
     
          `
-        userContainer.appendChild(userList)
          
      });
  }
@@ -61,16 +57,13 @@ window.onload = getUsers()
             defaultOption.name.value = ' users'
             defaultOption.innerHTML +=  `
              
-            <option value="name">${data[0].name}</option>
-           <option value="username">${data[0].username}</option>
-           <option value="email">${data[0].email}</option>
+            <option value="name">name</option>
+           <option value="username">username</option>
+           <option value="email">email</option>
            `
     
             dropdownContainer.appendChild(defaultOption)
-            
-
-            
-            
+                
         
         //})
         
@@ -80,11 +73,28 @@ window.onload = getUsers()
  }
  window.onload = dropdown()
 // filter 
+window.onload = function filterSongs(){
 
-let searchInput = document.querySelector('#search')
+ let searchInput = document.querySelector('#search')
 //console.log(searchInput);
 if (searchInput.value === ""){
     alert('you must type something')
 }else{
      (searchInput.value)
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// event listener
+let button = document.querySelector('.btn')
+button.addEventListener('click', filterSongs)

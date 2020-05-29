@@ -460,46 +460,51 @@
         </div>
     </div>
 </div>
-</body>
+
+    <script src="script.js"></script>
+    <script>
+
+        function windowSize() {
+            let windowSize = window.innerWidth;
+        let windowHeight = window.innerHeight;
+        let numberOfChildren = document.querySelectorAll(".first-div-in-player > div");
+            if(windowSize < 1074){
+                numberOfChildren[0].setAttribute("style","display:none;")
+                numberOfChildren[1].setAttribute("style","margin-left:12px;")
+            }else{
+                numberOfChildren[0].setAttribute("style","display:block;")
+                numberOfChildren[1].setAttribute("style","margin-left:0px;")
+            }
+            let navbarRegular = document.querySelector(".navbar-menu");
+            if(windowSize < 768){
+                document.querySelector(".navbar").classList.remove("vertical-navbar")
+                document.querySelector(".navbar").classList.remove("flex-column")
+                document.querySelector(".navbar").classList.remove("fixed-top")
+                document.querySelector(".content-of-albums").classList.add("pr-0")
+            }else{
+                document.querySelector(".navbar").classList.add("vertical-navbar")
+                document.querySelector(".navbar").classList.add("flex-column")
+                document.querySelector(".navbar").classList.add("fixed-top")
+                document.querySelector(".content-of-albums").classList.remove("pr-0")
+            }
+            if(windowHeight < 768){
+                document.querySelector(".jumbotron.jumbotron-fluid").style.height = "30%";
+    
+            }
+        }
+
+
+        window.onload = windowSize
+
+        //Script
+        let navbarNow = document.querySelector(".navbar-menu");
+        window.addEventListener("resize",windowSize)
+    </script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-                <script>
+               
 
-                    function windowSize() {
-                        let windowSize = window.innerWidth;
-                    let windowHeight = window.innerHeight;
-                    let numberOfChildren = document.querySelectorAll(".first-div-in-player > div");
-                        if(windowSize < 1074){
-                            numberOfChildren[0].setAttribute("style","display:none;")
-                            numberOfChildren[1].setAttribute("style","margin-left:12px;")
-                        }else{
-                            numberOfChildren[0].setAttribute("style","display:block;")
-                            numberOfChildren[1].setAttribute("style","margin-left:0px;")
-                        }
-                        let navbarRegular = document.querySelector(".navbar-menu");
-                        if(windowSize < 768){
-                            document.querySelector(".navbar").classList.remove("vertical-navbar")
-                            document.querySelector(".navbar").classList.remove("flex-column")
-                            document.querySelector(".navbar").classList.remove("fixed-top")
-                            document.querySelector(".content-of-albums").classList.add("pr-0")
-                        }else{
-                            document.querySelector(".navbar").classList.add("vertical-navbar")
-                            document.querySelector(".navbar").classList.add("flex-column")
-                            document.querySelector(".navbar").classList.add("fixed-top")
-                            document.querySelector(".content-of-albums").classList.remove("pr-0")
-                        }
-                        if(windowHeight < 768){
-                            document.querySelector(".jumbotron.jumbotron-fluid").style.height = "30%";
-                
-                        }
-                    }
+</body>
 
-
-                    window.onload = windowSize
-
-                    //Script
-                    let navbarNow = document.querySelector(".navbar-menu");
-                    window.addEventListener("resize",windowSize)
-                </script>
 </html>
